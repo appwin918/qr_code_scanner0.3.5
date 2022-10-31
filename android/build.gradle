@@ -5,7 +5,7 @@ buildscript {
     ext.kotlin_version = '1.4.30'
     repositories {
         google()
-        gradlePluginPortal()
+        mavenCentral()
     }
 
     dependencies {
@@ -17,7 +17,7 @@ buildscript {
 rootProject.allprojects {
     repositories {
         google()
-        gradlePluginPortal()
+        mavenCentral()
     }
 }
 
@@ -46,9 +46,13 @@ android {
     aaptOptions.useNewCruncher = false
 }
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation('com.journeyapps:zxing-android-embedded:4.1.0') { transitive = false }
+    implementation('com.journeyapps:zxing-android-embedded:4.3.0') { transitive = false }
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.zxing:core:3.3.0'
 }
